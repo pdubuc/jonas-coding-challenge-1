@@ -5,7 +5,7 @@ import "./styles.css";
 function App() {
   return (
     <div className="card">
-      <Avatar photoName="../public/surprise.png" />
+      <Avatar name="Surprise face" photoName="public/surprise.png" />
       <div className="data">
         <Intro />
         {/* Should contain one Skill component
@@ -18,7 +18,11 @@ function App() {
 }
 
 function Avatar(props) {
-  return <div className="Avatar">{props.photoName}</div>;
+  return (
+    <div className="Avatar">
+      <img src={props.photoName} alt={props.name} />
+    </div>
+  );
 }
 
 function Intro(props) {
