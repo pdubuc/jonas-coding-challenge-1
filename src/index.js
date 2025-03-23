@@ -5,38 +5,65 @@ import "./styles.css";
 function App() {
   return (
     <div className="card">
-      <Avatar name="Surprise face" photoName="public/images/surprise.png" />
+      <Avatar photo="surprise.jpg" photoName="Surprise face" />
       <div className="data">
-        <Intro />
+        <Intro
+          name="Paul Dubuc"
+          intro="Front-end React web developer. When not coding, I work as a Technical Program Manager.  In my spare time, I like to hike and meditate."
+        />
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
-        <SkillList skill="html" emoji="" bgcolor="" />
+        <SkillList skill="HTML+CSS" emoji="" bgcolor="" />
       </div>
     </div>
   );
 }
 
 function Avatar(props) {
+  const imgStyle = {
+    width: "442px",
+    height: "300px",
+    objectFit: "fill", // Ensures the image will fill the box, even if it distorts
+  };
   return (
-    <div className="Avatar">
-      <img src={props.photoName} alt={props.name} />
+    <div className="avatar">
+      <img src={props.photo} alt={props.photoName} style={imgStyle} />
     </div>
   );
 }
 
 function Intro(props) {
-  return <div className="data">what</div>;
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <p>
+        <span style={{ backgroundColor: "lightblue" }}>{props.intro}</span>
+      </p>
+    </div>
+  );
 }
 
-function SkillList(props) {
+function SkillList() {
   return (
-    <div className="skill-list">
-      <div className="skill">
-        {props.skill}
-        {props.emoji}
-        {props.bgcolor}
-      </div>
+    <main className="skill-list">
+      <Skill skill="HTML+CSS " emoji="😊" bgcolor="lightblue" />
+      <Skill skill="JavaScript " emoji="👍" bgcolor="gold" />
+      <Skill skill="Web Design " emoji="💪" bgcolor="red" />
+      <Skill skill="Git and Github " emoji="😁" bgcolor="green" />
+      <Skill skill="React " emoji="😎" bgcolor="blue" />
+    </main>
+  );
+}
+
+function Skill(props) {
+  const boxStyle = {
+    backgroundColor: props.bgcolor,
+  };
+  return (
+    <div className="skill" style={boxStyle}>
+      {props.skill}
+      {props.emoji}
     </div>
   );
 }
