@@ -5,40 +5,28 @@ import "./styles.css";
 function App() {
   return (
     <div className="card">
-      <Avatar photo="surprise.jpg" photoName="Surprise face" />
+      <Avatar />
       <div className="data">
-        <Intro
-          name="Paul Dubuc"
-          intro="Front-end React web developer. When not coding, I work as a Technical Program Manager.  In my spare time, I like to hike and meditate."
-        />
-        {/* Should contain one Skill component
-        for each web dev skill that you have,
-        customized with props */}
-        <SkillList skill="HTML+CSS" emoji="" bgcolor="" />
+        <Intro />
+        <SkillList />
       </div>
     </div>
   );
 }
 
-function Avatar(props) {
-  const imgStyle = {
-    width: "442px",
-    height: "300px",
-    objectFit: "fill", // Ensures the image will fill the box, even if it distorts
-  };
-  return (
-    <div className="avatar">
-      <img src={props.photo} alt={props.photoName} style={imgStyle} />
-    </div>
-  );
+function Avatar() {
+  return <img src="surprise.jpg" alt="Paul D" className="avatar" />;
 }
 
-function Intro(props) {
+function Intro() {
   return (
     <div>
-      <h1>{props.name}</h1>
+      <h1>Paul Dubuc</h1>
       <p>
-        <span style={{ backgroundColor: "lightblue" }}>{props.intro}</span>
+        <span>
+          Front-end React web developer. When not coding, I work as a Technical
+          Program Manager. In my spare time, I like to hike and meditate.
+        </span>
       </p>
     </div>
   );
@@ -57,13 +45,10 @@ function SkillList() {
 }
 
 function Skill(props) {
-  const boxStyle = {
-    backgroundColor: props.bgcolor,
-  };
   return (
-    <div className="skill" style={boxStyle}>
-      {props.skill}
-      {props.emoji}
+    <div className="skill" style={{ backgroundColor: props.bgcolor }}>
+      <span>{props.skill}</span>
+      <span>{props.emoji}</span>
     </div>
   );
 }
