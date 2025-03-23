@@ -5,7 +5,7 @@ import "./styles.css";
 function App() {
   return (
     <div className="card">
-      <Avatar name="Surprise face" photoName="public/surprise.png" />
+      <Avatar name="Surprise face" photoName="public/images/surprise.png" />
       <div className="data">
         <Intro />
         {/* Should contain one Skill component
