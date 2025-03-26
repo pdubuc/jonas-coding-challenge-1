@@ -21,7 +21,7 @@ function Avatar() {
 function Intro() {
   return (
     <div>
-      <h1>Paul Dubuc</h1>
+      <h1>Paul D</h1>
       <p>
         <span>
           Front-end React web developer. When not coding, I work as a Technical
