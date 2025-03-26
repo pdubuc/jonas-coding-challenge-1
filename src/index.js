@@ -5,38 +5,50 @@ import "./styles.css";
 function App() {
   return (
     <div className="card">
-      <Avatar name="Surprise face" photoName="public/surprise.png" />
+      <Avatar />
       <div className="data">
         <Intro />
-        {/* Should contain one Skill component
-        for each web dev skill that you have,
-        customized with props */}
-        <SkillList skill="html" emoji="" bgcolor="" />
+        <SkillList />
       </div>
     </div>
   );
 }
 
-function Avatar(props) {
+function Avatar() {
+  return <img src="surprise.jpg" alt="Paul D" className="avatar" />;
+}
+
+function Intro() {
   return (
-    <div className="Avatar">
-      <img src={props.photoName} alt={props.name} />
+    <div>
+      <h1>Paul D</h1>
+      <p>
+        <span>
+          Front-end React web developer. When not coding, I work as a Technical
+          Program Manager. In my spare time, I like to hike and meditate.
+        </span>
+      </p>
     </div>
   );
 }
 
-function Intro(props) {
-  return <div className="data">what</div>;
+function SkillList() {
+  return (
+    <main className="skill-list">
+      <Skill skill="HTML+CSS " emoji="😊" bgcolor="lightblue" />
+      <Skill skill="JavaScript " emoji="👍" bgcolor="gold" />
+      <Skill skill="Web Design " emoji="💪" bgcolor="red" />
+      <Skill skill="Git and Github " emoji="😁" bgcolor="green" />
+      <Skill skill="React " emoji="😎" bgcolor="blue" />
+    </main>
+  );
 }
 
-function SkillList(props) {
+function Skill(props) {
   return (
-    <div className="skill-list">
-      <div className="skill">
-        {props.skill}
-        {props.emoji}
-        {props.bgcolor}
-      </div>
+    <div className="skill" style={{ backgroundColor: props.bgcolor }}>
+      <span>{props.skill}</span>
+      <span>{props.emoji}</span>
     </div>
   );
 }
